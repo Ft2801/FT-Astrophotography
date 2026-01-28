@@ -141,7 +141,7 @@ function renderFooter() {
                     <ul>
                         <li><a href="https://github.com/Ft2801" target="_blank">GitHub</a></li>
                         <li><a href="https://ft2801.github.io/Portfolio" target="_blank">Portfolio</a></li>
-                        <li><a href="mailto:info@fabiotempera.it">Contatti</a></li>
+                        <li><a href="mailto:fabiot2801@gmail.com">Contatti</a></li>
                     </ul>
                 </div>
             </div>
