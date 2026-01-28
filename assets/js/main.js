@@ -218,8 +218,13 @@ document.addEventListener('click', async (e) => {
 
                 if (progress < duration) {
                     window.requestAnimationFrame(step);
+                } else {
+                    document.documentElement.style.scrollBehavior = ''; // Restore CSS smooth scroll
                 }
             }
+
+            // Disable CSS smooth scroll to prevent conflict with JS manual scroll
+            document.documentElement.style.scrollBehavior = 'auto';
 
             window.requestAnimationFrame(step);
         }
