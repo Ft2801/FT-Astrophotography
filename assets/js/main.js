@@ -201,7 +201,7 @@ document.addEventListener('click', async (e) => {
             const targetPos = elementRect.top + window.pageYOffset - navbarHeight - extraPadding;
             const startPos = window.pageYOffset;
             const distance = targetPos - startPos;
-            const duration = 500; // Faster 500ms smooth scroll
+            const duration = 1000; // Slower 1000ms smooth scroll (doubled)
             let start = null;
 
             function step(timestamp) {
