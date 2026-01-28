@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabio Tempera - Astrofotografia e Astrophotography Pescara | Ft2801</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Fabio Tempera (Ft2801) - Astrofili Abruzzo e Pescara. Portfolio di astrofotografia Pescara e Abruzzo, sviluppo software astronomico TStar e tutorial. Scopri l'astrofotografia in Abruzzo.">
+    <meta name="keywords"
+        content="astrofili abruzzo, astrofili pescara, astrofotografia pescara, astrofotografia abruzzo, Fabio Tempera, Ft2801, astrofotografia, astrophotography, TStar, software astronomia, imaging astronomico, astrofotografo Pescara">
+    <meta name="author" content="Fabio Tempera">
+    <meta name="creator" content="Fabio Tempera - Ft2801">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="9-BXZmG4fmiha2tDLhSlW_gI8XIvoNpyeNT2-x5YxdE" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ft2801.github.io/FT-Astrophotography/index.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ft2801.github.io/FT-Astrophotography/index.html">
+    <meta property="og:title" content="Fabio Tempera - Astrofotografia e Astrophotography Pescara | Ft2801">
+    <meta property="og:description"
+        content="Astrofili Abruzzo e Pescara: portfolio di astrofotografia Pescara e Abruzzo di Fabio Tempera. Software TStar e tutorial di imaging astronomico professionale.">
+    <meta property="og:image" content="https://ft2801.github.io/FT-Astrophotography/assets/images/logo.png">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Fabio Tempera Astrophotography">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ft2801.github.io/FT-Astrophotography/index.html">
+    <meta name="twitter:title" content="Fabio Tempera - Astrofotografia e Astrophotography Pescara | Ft2801">
+    <meta name="twitter:description"
+        content="Astrofili Abruzzo e Pescara: astrofotografia Pescara e Abruzzo di Fabio Tempera. Software astronomico TStar e tutorial.">
+    <meta name="twitter:image" content="https://ft2801.github.io/FT-Astrophotography/assets/images/logo.png">
+
+    <!-- Schema.org JSON-LD for Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Fabio Tempera",
+      "alternateName": ["Ft2801", "fabiot2801"],
+      "url": "https://ft2801.github.io/FT-Astrophotography/",
+      "image": "https://ft2801.github.io/FT-Astrophotography/assets/images/logo.png",
+      "jobTitle": "Astrofotografo e Ingegnere Informatico",
+      "description": "Astrofotografo professionista specializzato in Deep Sky imaging e sviluppatore del software astronomico TStar",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pescara",
+        "addressRegion": "Abruzzo",
+        "addressCountry": "IT"
+      },
+      "knowsAbout": ["Astrofotografia", "Astrophotography", "Deep Sky Imaging", "Astronomical Software Development", "TStar", "Ingegneria Informatica"],
+      "sameAs": [
+        "https://github.com/Ft2801"
+      ]
+    }
+    </script>
+
+    <!-- Translations -->
+    <script src="assets/js/translations.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+</head>
+
+<body>
+    <div id="cursor"></div>
+    <canvas id="starfield"></canvas>
+
+    <!-- Content Wrapper for SPA -->
+    <div id="main-content">
+        <!-- Header will be injected by layout.js before this -->
+
+        <header class="hero">
+            <div class="container">
+                <h1>Fabio Tempera<br><span
+                        style="font-size: 0.6em; color: var(--accent-cyan); font-weight: 300;">Astrophotography</span>
+                </h1>
+                <p data-i18n="hero.subtitle">Esplora l'universo attraverso l'arte e la scienza dell'imaging astronomico.
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="pages/gallery.html" class="btn" data-i18n="hero.btn.gallery">Visita la Galleria</a>
+                    <a href="#intro-section" class="btn btn-outline" data-i18n="hero.btn.scroll">Scorri in Basso
+                        &darr;</a>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button id="lang-toggle" class="btn-text"
+                        style="color: #fff; cursor: pointer; background: none; border: none; font-size: 0.9rem; opacity: 0.7; text-decoration: underline;"
+                        data-i18n="hero.lang.switch">English Version</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. Galleria Preview -->
+        <section id="intro-section" class="section">
+            <div class="container">
+                <div class="section-header"
+                    style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px;">
+                    <div>
+                        <h2 style="margin-bottom: 10px;" data-i18n="latest.title">Ultimi Scatti</h2>
+                        <p style="color: #888;" data-i18n="latest.subtitle">Una selezione dei miei lavori più recenti
+                            dal profondo cielo.</p>
+                    </div>
+                    <a href="pages/gallery.html" class="btn-text"
+                        style="color: var(--accent-cyan); text-decoration: none;" data-i18n="latest.view_all">Vedi tutti
+                        &rarr;</a>
+                </div>
+
+                <div class="grid-3">
+                    <article class="card">
+                        <a href="pages/orion_horse.html">
+                            <img src="assets/images/Orion_Horse_preview.webp" alt="Orione e Testa di Cavallo"
+                                style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                            <div class="card-content">
+                                <h3 class="card-title" data-i18n="card.orion_horse">Orione e Testa di Cavallo</h3>
+                                <p class="card-desc">Deep Sky - Barnard 33</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="card">
+                        <a href="pages/andromeda.html">
+                            <img src="assets/images/Andromeda_preview.webp" alt="Galassia Andromeda"
+                                style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                            <div class="card-content">
+                                <h3 class="card-title" data-i18n="card.andromeda">Galassia Andromeda</h3>
+                                <p class="card-desc">Deep Sky - M31</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="card">
+                        <a href="pages/pleiadi.html">
+                            <img src="assets/images/pleiadi_preview.webp" alt="Le Pleiadi"
+                                style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                            <div class="card-content">
+                                <h3 class="card-title" data-i18n="card.pleiades">Le Pleiadi</h3>
+                                <p class="card-desc">Deep Sky - M45</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Storia Preview -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h2 style="margin-bottom: 30px;" data-i18n="story.title">La Mia Storia</h2>
+                    <p style="margin-bottom: 30px; color: #aaa; line-height: 1.8;" data-i18n="story.text">
+                        Il mio percorso unisce rigore scientifico ed espressione artistica attraverso tre grandi
+                        passioni: l'Informatica, la Fotografia e l'Astrofotografia.
+                        Come Ingegnere Informatico con un background in Elettronica, affronto ogni sfida con un
+                        approccio analitico e strutturato, spaziando dallo sviluppo software all'analisi dati.
+                        La fotografia è il mio mezzo per catturare l'istante, mentre l'astrofotografia rappresenta la
+                        sintesi perfetta tra tecnica e meraviglia, permettendomi di esplorare e rivelare la bellezza
+                        nascosta del cosmo profondo.
+                    </p>
+                    <a href="pages/about.html" class="btn" data-i18n="story.btn">Leggi la Bio Completa</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Software Preview -->
+        <section class="section">
+            <div class="container">
+                <div class="grid-3" style="grid-template-columns: 1fr 1fr; align-items: center; gap: 60px;">
+                    <div class="software-content" style="order: 2;">
+                        <span
+                            style="color: var(--accent-cyan); font-weight: bold; letter-spacing: 2px; font-size: 0.9rem;"
+                            data-i18n="software.label">SOFTWARE PROPRIETARIO</span>
+                        <h2 style="margin: 10px 0 20px;">TStar</h2>
+                        <p style="margin-bottom: 20px; color: #aaa;" data-i18n="software.text">
+                            Una potente piattaforma di elaborazione immagini basata su C++17 e Qt6. Progettata per
+                            controllo totale sui dati grezzi lineari e risultati di grado scientifico.
+                        </p>
+                        <ul style="margin-bottom: 30px; list-style: none;">
+                            <li style="margin-bottom: 10px; color: #ccc;" data-i18n="software.li1">&#8226; Architettura
+                                C++17 & Qt6</li>
+                            <li style="margin-bottom: 10px; color: #ccc;" data-i18n="software.li2">&#8226; Gestione MDI
+                                Flessibile</li>
+                            <li style="margin-bottom: 10px; color: #ccc;" data-i18n="software.li3">&#8226; AI Noise
+                                Reduction</li>
+                        </ul>
+                        <a href="pages/software.html" class="btn" data-i18n="software.btn">Scopri TStar</a>
+                    </div>
+                    <div style="order: 1;">
+                        <img src="assets/images/TStar.webp" alt="TStar Software Interface" class="tstar-logo"
+                            style="width: 55%; display: block; margin: 0 auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 30px rgba(74, 144, 226, 0.1);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Tutorial Preview -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h2 style="margin-bottom: 20px;" data-i18n="tutorial.title">Condividere la Conoscenza</h2>
+                    <p style="color: #aaa; margin-bottom: 30px; line-height: 1.8;" data-i18n="tutorial.text">
+                        Credo fermamente che la condivisione sia alla base della crescita scientifica e tecnica.
+                        Nella sezione Tutorial troverai guide approfondite sulle mie tecniche di acquisizione ed
+                        elaborazione,
+                        dalla calibrazione dei file grezzi all'utilizzo avanzato di TStar e altri software di imaging,
+                        per aiutarti a ottenere il massimo dai tuoi dati astronomici.
+                    </p>
+                    <a href="pages/tutorials.html" class="btn" data-i18n="tutorial.btn">Vai ai Tutorial</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Partner Section -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h2 style="margin-bottom: 30px;" data-i18n="partner.title">Partner</h2>
+                    <div
+                        style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                        <div>
+                            <img src="assets/images/gaspra.webp" alt="Gruppo Astrofili Pescaresi RA"
+                                style="height: 80px; width: auto; object-fit: contain;">
+                        </div>
+                        <div class="partner-text" style="text-align: left; max-width: 400px;">
+                            <h3 style="color: var(--accent-cyan); margin-bottom: 10px;"
+                                data-i18n="partner.gaspra.title">Gruppo Astrofili Pescaresi "RA"</h3>
+                            <p style="color: #aaa; font-size: 0.95rem; line-height: 1.6;"
+                                data-i18n="partner.gaspra.text">
+                                Una comunità di appassionati di astronomia e astrofotografia dedicata alla ricerca, alla
+                                condivisione delle conoscenze e all'osservazione del cielo notturno dalla costa
+                                adriatica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer will be injected by layout.js after this -->
+    </div>
+
+    <!-- Order matters: layout.js first to inject header/footer, then main.js for logic -->
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

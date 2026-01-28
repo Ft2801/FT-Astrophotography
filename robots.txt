@@ -1,0 +1,13 @@
+# robots.txt for FT-Astrophotography
+# Fabio Tempera (Ft2801) - Astrofotografia Pescara
+
+User-agent: *
+Allow: /
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://ft2801.github.io/FT-Astrophotography/sitemap.xml
