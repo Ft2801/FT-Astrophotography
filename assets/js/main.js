@@ -31,6 +31,18 @@ document.addEventListener('mouseover', (e) => {
     }
 });
 
+// --- Navbar Scrolled Logic ---
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+});
+
 
 // --- Starfield Canvas Logic ---
 const canvas = document.getElementById('starfield');
@@ -182,14 +194,14 @@ document.addEventListener('click', async (e) => {
             // Get navbar height
             const navbar = document.querySelector('.navbar');
             const navbarHeight = navbar ? navbar.offsetHeight : 60;
-            const extraPadding = 160; // Stop 100px higher
+            const extraPadding = 180; // Stop even higher as requested
 
             // Calculate target position
             const elementRect = targetElement.getBoundingClientRect();
             const targetPos = elementRect.top + window.pageYOffset - navbarHeight - extraPadding;
             const startPos = window.pageYOffset;
             const distance = targetPos - startPos;
-            const duration = 800; // 800ms smooth scroll
+            const duration = 500; // Faster 500ms smooth scroll
             let start = null;
 
             function step(timestamp) {
