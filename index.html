@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabio Tempera Astrophotography</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sito ufficiale di Fabio Tempera. Portfolio di Astrofotografia Deep Sky, Ingegneria Informatica e sviluppo del software astronomico TStar.">
+    <meta name="keywords" content="Fabio Tempera, Astrofotografia, Astrophotography, TStar, Software Astronomia, Deep Space, Nebulose, Galassie, C++, Qt6">
+    <meta name="author" content="Fabio Tempera">
+    <meta name="robots" content="index, follow"> 
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+</head>
+<body>
+    <div id="cursor"></div>
+    <canvas id="starfield"></canvas>
+
+    <!-- Content Wrapper for SPA -->
+    <div id="main-content">
+        <!-- Header will be injected by layout.js before this -->
+
+        <header class="hero">
+            <div class="container">
+                <h1>Fabio Tempera<br><span style="font-size: 0.6em; color: var(--accent-cyan); font-weight: 300;">Astrophotography</span></h1>
+                <p>Esplora l'universo attraverso l'arte e la scienza dell'imaging astronomico.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="pages/gallery.html" class="btn">Visita la Galleria</a>
+                    <a href="#intro-section" class="btn btn-outline">Scorri in Basso &darr;</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. Galleria Preview -->
+        <section id="intro-section" class="section">
+            <div class="container">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px;">
+                    <div>
+                        <h2 style="margin-bottom: 10px;">Ultimi Scatti</h2>
+                        <p style="color: #888;">Una selezione dei miei lavori più recenti dal profondo cielo.</p>
+                    </div>
+                    <a href="pages/gallery.html" class="btn-text" style="color: var(--accent-cyan); text-decoration: none;">Vedi tutti &rarr;</a>
+                </div>
+                
+                <div class="grid-3">
+                    <article class="card">
+                        <a href="pages/orion_horse.html">
+                            <img src="assets/images/Orion_Horse_preview.webp" alt="Orione e Testa di Cavallo" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                            <div class="card-content">
+                                <h3 class="card-title">Orione e Testa di Cavallo</h3>
+                                <p class="card-desc">Deep Sky - Barnard 33</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="card">
+                        <a href="pages/andromeda.html">
+                            <img src="assets/images/Andromeda_preview.webp" alt="Galassia Andromeda" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                            <div class="card-content">
+                                <h3 class="card-title">Galassia Andromeda</h3>
+                                <p class="card-desc">Deep Sky - M31</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="card">
+                        <a href="pages/pleiadi.html">
+                            <img src="assets/images/pleiadi_preview.webp" alt="Le Pleiadi" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                            <div class="card-content">
+                                <h3 class="card-title">Le Pleiadi</h3>
+                                <p class="card-desc">Deep Sky - M45</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Storia Preview -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h2 style="margin-bottom: 30px;">La Mia Storia</h2>
+                    <p style="margin-bottom: 30px; color: #aaa; line-height: 1.8;">
+                        Il mio percorso unisce rigore scientifico ed espressione artistica attraverso tre grandi passioni: l'Informatica, la Fotografia e l'Astrofotografia. 
+                        Come Ingegnere Informatico con un background in Elettronica, affronto ogni sfida con un approccio analitico e strutturato, spaziando dallo sviluppo software all'analisi dati. 
+                        La fotografia è il mio mezzo per catturare l'istante, mentre l'astrofotografia rappresenta la sintesi perfetta tra tecnica e meraviglia, permettendomi di esplorare e rivelare la bellezza nascosta del cosmo profondo.
+                    </p>
+                    <a href="pages/about.html" class="btn">Leggi la Bio Completa</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Software Preview -->
+        <section class="section">
+            <div class="container">
+                <div class="grid-3" style="grid-template-columns: 1fr 1fr; align-items: center; gap: 60px;">
+                    <div style="order: 2;">
+                        <span style="color: var(--accent-cyan); font-weight: bold; letter-spacing: 2px; font-size: 0.9rem;">SOFTWARE PROPRIETARIO</span>
+                        <h2 style="margin: 10px 0 20px;">TStar</h2>
+                        <p style="margin-bottom: 20px; color: #aaa;">
+                            Una potente piattaforma di elaborazione immagini basata su C++17 e Qt6. Progettata per controllo totale sui dati grezzi lineari e risultati di grado scientifico.
+                        </p>
+                        <ul style="margin-bottom: 30px; list-style: none;">
+                            <li style="margin-bottom: 10px; color: #ccc;">&#8226; Architettura C++17 & Qt6</li>
+                            <li style="margin-bottom: 10px; color: #ccc;">&#8226; Gestione MDI Flessibile</li>
+                            <li style="margin-bottom: 10px; color: #ccc;">&#8226; AI Noise Reduction</li>
+                        </ul>
+                        <a href="pages/software.html" class="btn">Scopri TStar</a>
+                    </div>
+                    <div style="order: 1;">
+                         <img src="assets/images/TStar.webp" alt="TStar Software Interface" style="width: 55%; display: block; margin: 0 auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 30px rgba(74, 144, 226, 0.1);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Tutorial Preview -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h2 style="margin-bottom: 20px;">Condividere la Conoscenza</h2>
+                    <p style="color: #aaa; margin-bottom: 30px; line-height: 1.8;">
+                        Credo fermamente che la condivisione sia alla base della crescita scientifica e tecnica. 
+                        Nella sezione Tutorial troverai guide approfondite sulle mie tecniche di acquisizione ed elaborazione, 
+                        dalla calibrazione dei file grezzi all'utilizzo avanzato di TStar e altri software di imaging, 
+                        per aiutarti a ottenere il massimo dai tuoi dati astronomici.
+                    </p>
+                    <a href="pages/tutorials.html" class="btn">Vai ai Tutorial</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Partner Section -->
+        <section class="section">
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h2 style="margin-bottom: 30px;">Partner</h2>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                        <div>
+                            <img src="assets/images/gaspra.webp" alt="Gruppo Astrofili Pescaresi RA" style="height: 80px; width: auto; object-fit: contain;">
+                        </div>
+                        <div style="text-align: left; max-width: 400px;">
+                            <h3 style="color: var(--accent-cyan); margin-bottom: 10px;">Gruppo Astrofili Pescaresi "RA"</h3>
+                            <p style="color: #aaa; font-size: 0.95rem; line-height: 1.6;">
+                                Una comunità di appassionati di astronomia e astrofotografia dedicata alla ricerca, alla condivisione delle conoscenze e all'osservazione del cielo notturno dalla costa adriatica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer will be injected by layout.js after this -->
+    </div>
+
+    <!-- Order matters: layout.js first to inject header/footer, then main.js for logic -->
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
