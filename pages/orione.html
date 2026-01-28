@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,52 +9,72 @@
     <meta name="author" content="Fabio Tempera">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <script src="../assets/js/translations.js"></script>
 </head>
+
 <body>
     <div id="cursor"></div>
     <canvas id="starfield"></canvas>
     <div id="main-content">
         <div class="section" style="padding-top: 150px;">
-        <div class="container">
-            <a href="gallery.html" style="display: inline-block; margin-bottom: 20px; font-size: 0.9rem;">&larr; Torna alla Galleria</a>
-            
-            <h1 style="font-size: 3rem; margin-bottom: 10px;">Grande Nebulosa di Orione</h1>
-            <p style="color: var(--accent-cyan); margin-bottom: 40px; font-size: 1.2rem;">M42</p>
-            
-            <div style="width: 100%; margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
-                <img src="../assets/images/Orione.webp" alt="Orione Full" style="width: 100%; display: block;">
-            </div>
-            
-            <div class="grid-3" style="grid-template-columns: 2fr 1fr; gap: 60px;">
-                <div>
-                    <h3>La Storia</h3>
-                    <p style="margin-bottom: 20px; line-height: 1.8; color: #ccc;">
-                        Uno dei gioielli più splendenti dell'astrofotografia, la Grande Nebulosa di Orione (M42) è un'immensa regione di formazione stellare visibile anche ad occhio nudo come una macchia nebbiosa nella 'spada' del Cacciatore. Posta a circa 1.350 anni luce dalla Terra, questa fornace cosmica è il luogo di nascita di migliaia di stelle.
-                    </p>
-                    <p style="margin-bottom: 20px; line-height: 1.8; color: #ccc;">
-                        Il cuore luminoso della nebulosa ospita il 'Trapezio', un ammasso giovane e compatto di stelle massicce la cui intensa radiazione ultravioletta scava cavità nel gas circostante e lo illumina dall'interno. Le complesse volute di gas e polveri mostrano una chimica ricca e dinamica, dove l'idrogeno ionizzato emette una caratteristica luce rosata mescolata alle tonalità bluastre della luce stellare riflessa dalle polveri.
-                    </p>
-                    <p style="margin-bottom: 20px; line-height: 1.8; color: #ccc;">
-                        Studiare M42 permette agli astronomi di osservare direttamente i dischi protoplanetari e i getti energetici emessi da stelle nascenti, offrendo una finestra privilegiata sui processi che hanno portato alla formazione del nostro stesso Sistema Solare.
-                    </p>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px;">
-                    <h4 style="border-bottom: 1px solid var(--accent-cyan); padding-bottom: 10px; margin-bottom: 20px;">Dati Tecnici</h4>
-                    
-                     <ul style="list-style: none;">
-                        <li style="margin-bottom: 10px;"><strong>Camera:</strong> Nikon D5300</li>
-                        <li style="margin-bottom: 10px;"><strong>Montatura:</strong> Omegon Minitrack LX3</li>
-                        <li style="margin-bottom: 10px;"><strong>Integrazione:</strong> 1h</li>
-                        <li style="margin-bottom: 10px;"><strong>Software:</strong> TStar</li>
-                    </ul>
-                </div>
-            </div>
+            <div class="container">
+                <a href="gallery.html" style="display: inline-block; margin-bottom: 20px; font-size: 0.9rem;"
+                    data-i18n="detail.back">&larr; Torna alla Galleria</a>
 
+                <h1 style="font-size: 3rem; margin-bottom: 10px;" data-i18n="orion.title">Grande Nebulosa di Orione</h1>
+                <p style="color: var(--accent-cyan); margin-bottom: 40px; font-size: 1.2rem;"
+                    data-i18n="orion.subtitle">M42</p>
+
+                <div
+                    style="width: 100%; margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;">
+                    <img src="../assets/images/Orione.webp" alt="Orione Full" style="width: 100%; display: block;">
+                </div>
+
+                <div class="grid-3" style="grid-template-columns: 2fr 1fr; gap: 60px;">
+                    <div>
+                        <h3 data-i18n="detail.story.title">La Storia</h3>
+                        <p style="margin-bottom: 20px; line-height: 1.8; color: #ccc;" data-i18n="orion.p1">
+                            Uno dei gioielli più splendenti dell'astrofotografia, la Grande Nebulosa di Orione (M42) è
+                            un'immensa regione di formazione stellare visibile anche ad occhio nudo come una macchia
+                            nebbiosa nella 'spada' del Cacciatore. Posta a circa 1.350 anni luce dalla Terra, questa
+                            fornace cosmica è il luogo di nascita di migliaia di stelle.
+                        </p>
+                        <p style="margin-bottom: 20px; line-height: 1.8; color: #ccc;" data-i18n="orion.p2">
+                            Il cuore luminoso della nebulosa ospita il 'Trapezio', un ammasso giovane e compatto di
+                            stelle massicce la cui intensa radiazione ultravioletta scava cavità nel gas circostante e
+                            lo illumina dall'interno. Le complesse volute di gas e polveri mostrano una chimica ricca e
+                            dinamica, dove l'idrogeno ionizzato emette una caratteristica luce rosata mescolata alle
+                            tonalità bluastre della luce stellare riflessa dalle polveri.
+                        </p>
+                        <p style="margin-bottom: 20px; line-height: 1.8; color: #ccc;" data-i18n="orion.p3">
+                            Studiare M42 permette agli astronomi di osservare direttamente i dischi protoplanetari e i
+                            getti energetici emessi da stelle nascenti, offrendo una finestra privilegiata sui processi
+                            che hanno portato alla formazione del nostro stesso Sistema Solare.
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px;">
+                        <h4 style="border-bottom: 1px solid var(--accent-cyan); padding-bottom: 10px; margin-bottom: 20px;"
+                            data-i18n="detail.tech.title">Dati Tecnici</h4>
+
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 10px;"><strong data-i18n="detail.label.camera">Camera:</strong>
+                                Nikon D5300</li>
+                            <li style="margin-bottom: 10px;"><strong data-i18n="detail.label.mount">Montatura:</strong>
+                                Omegon Minitrack LX3</li>
+                            <li style="margin-bottom: 10px;"><strong
+                                    data-i18n="detail.label.integration">Integrazione:</strong> 1h</li>
+                            <li style="margin-bottom: 10px;"><strong
+                                    data-i18n="detail.label.software">Software:</strong> TStar</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
     </div>
     <script src="../assets/js/layout.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
+
 </html>

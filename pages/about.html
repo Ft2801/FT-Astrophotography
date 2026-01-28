@@ -1,121 +1,158 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Sono - Fabio Tempera Astrofotografia</title>
-    <meta name="description" content="Biografia di Fabio Tempera, astrofotografo e sviluppatore software (Tstar). La storia dietro Ft2801.">
+    <meta name="description"
+        content="Biografia di Fabio Tempera, astrofotografo e sviluppatore software (Tstar). La storia dietro Ft2801.">
     <meta name="keywords" content="Fabio Tempera, Biografia, Chi sono, Astrofotografo">
     <meta name="author" content="Fabio Tempera">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <script src="../assets/js/translations.js"></script>
 </head>
+
 <body>
     <div id="cursor"></div>
     <canvas id="starfield"></canvas>
     <div id="main-content">
         <div class="section" style="padding-top: 150px;">
-        <div class="container">
-            <!-- Header Section -->
-            <div style="text-align: center; margin-bottom: 60px;">
-                <h1 style="font-size: 3rem; margin-bottom: 15px;">Dietro l'Obiettivo</h1>
-                <h3 style="color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">Fabio Tempera (Ft2801)</h3>
-            </div>
-
-            <!-- Profile Summary -->
-            <div style="max-width: 900px; margin: 0 auto 60px; font-size: 1.1rem; line-height: 1.8; color: #ccc;">
-                <p style="margin-bottom: 25px;">
-                    <strong style="color: #fff;">Ingegnere informatico</strong> con una solida formazione accademica in ingegneria elettronica.
-                    Il percorso di studi ha permesso l'acquisizione di competenze tecniche trasversali e di un
-                    metodo di analisi strutturato, orientato alla risoluzione di problematiche complesse.
-                </p>
-                <p style="margin-bottom: 40px;">
-                    Durante la formazione ho maturato esperienza nella gestione di progetti software e nell'analisi
-                    dei dati, sviluppando una propensione all'organizzazione efficiente delle risorse. L'obiettivo
-                    professionale è l'applicazione delle conoscenze informatiche in contesti aziendali strutturati,
-                    contribuendo allo sviluppo di soluzioni efficienti e scalabili.
-                </p>
-
-                <!-- Info Cards Grid -->
-                <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 60px;">
-                    <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
-                        <span style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px;">Località</span>
-                        <strong style="color: #fff;">Pescara (PE)</strong>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
-                        <span style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px;">Nascita</span>
-                        <strong style="color: #fff;">2 Agosto 2001</strong>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
-                        <span style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px;">Formazione</span>
-                        <strong style="color: #fff;">Laurea Magistrale</strong>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
-                        <span style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px;">Università</span>
-                        <strong style="color: #fff;">UNIVPM - Ancona</strong>
-                    </div>
+            <div class="container">
+                <!-- Header Section -->
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h1 style="font-size: 3rem; margin-bottom: 15px;" data-i18n="about.header.title">Dietro l'Obiettivo
+                    </h1>
+                    <h3 style="color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;"
+                        data-i18n="about.header.subtitle">Fabio Tempera (Ft2801)</h3>
                 </div>
-            </div>
 
-            <!-- Astrophotography Skills -->
-            <div style="max-width: 900px; margin: 0 auto 60px;">
-                <h3 style="margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Competenze Astrofotografiche</h3>
-                
-                <div class="grid-3" style="gap: 30px;">
-                    <div>
-                        <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i style="margin-right: 10px;">🔭</i>Strumentazione</h4>
-                        <ul style="list-style: none; color: #aaa; line-height: 1.8;">
-                             <li>Telescopi e Ottiche</li>
-                             <li>Montature Equatoriali</li>
-                             <li>Camere CCD/CMOS Deep Sky</li>
-                             <li>Filtri Narrowband & LRGB</li>
-                             <li>Sistemi di Guida Automatica</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                         <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i style="margin-right: 10px;">💻</i>Software</h4>
-                         <ul style="list-style: none; color: #aaa; line-height: 1.8;">
-                             <li>PixInsight (Advanced)</li>
-                             <li>Siril (Scripting)</li>
-                             <li>Tstar (Proprietary Dev)</li>
-                             <li>Adobe Photoshop</li>
-                             <li>Nina / Sequence Generator Pro</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                         <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i style="margin-right: 10px;">🛠️</i>Sviluppo OSS</h4>
-                         <p style="color: #aaa; line-height: 1.6; font-size: 0.95rem;">
-                            Contributore attivo per software astronomici open source. 
-                            Sviluppo di moduli C++ per l'analisi e l'elaborazione delle immagini e ottimizzazione di algoritmi di stacking e calibrazione.
-                         </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats & Fusion Philoshopty -->
-            <div style="max-width: 900px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
-                 
-
-                <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa;">
-                        "Unendo le competenze di ingegneria del software e analisi dei segnali, ho sviluppato TStar per colmare il divario tra la complessità dei dati astronomici e la bellezza visuale, rendendo l'astrofotografia una scienza accessibile."
+                <!-- Profile Summary -->
+                <div style="max-width: 900px; margin: 0 auto 60px; font-size: 1.1rem; line-height: 1.8; color: #ccc;">
+                    <p style="margin-bottom: 25px;" data-i18n="about.intro.p1">
+                        <strong style="color: #fff;">Ingegnere informatico</strong> con una solida formazione accademica
+                        in ingegneria elettronica.
+                        Il percorso di studi ha permesso l'acquisizione di competenze tecniche trasversali e di un
+                        metodo di analisi strutturato, orientato alla risoluzione di problematiche complesse.
                     </p>
-                    <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
-                        <a href="https://ft2801.github.io/Portfolio" class="btn">Portfolio Web</a>
-                        <a href="https://github.com/Ft2801" class="btn" style="border-color: #fff; color: #fff;">GitHub Profile</a>
+                    <p style="margin-bottom: 40px;" data-i18n="about.intro.p2">
+                        Durante la formazione ho maturato esperienza nella gestione di progetti software e nell'analisi
+                        dei dati, sviluppando una propensione all'organizzazione efficiente delle risorse. L'obiettivo
+                        professionale è l'applicazione delle conoscenze informatiche in contesti aziendali strutturati,
+                        contribuendo allo sviluppo di soluzioni efficienti e scalabili.
+                    </p>
+
+                    <!-- Info Cards Grid -->
+                    <div class="grid-3"
+                        style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 60px;">
+                        <div
+                            style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+                            <span
+                                style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px;"
+                                data-i18n="about.card.location">Località</span>
+                            <strong style="color: #fff;" data-i18n="about.card.location.val">Pescara (PE)</strong>
+                        </div>
+                        <div
+                            style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+                            <span
+                                style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px;"
+                                data-i18n="about.card.born">Nascita</span>
+                            <strong style="color: #fff;" data-i18n="about.card.born.val">2 Agosto 2001</strong>
+                        </div>
+                        <div
+                            style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+                            <span
+                                style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px;"
+                                data-i18n="about.card.edu">Formazione</span>
+                            <strong style="color: #fff;" data-i18n="about.card.edu.val">Laurea Magistrale</strong>
+                        </div>
+                        <div
+                            style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+                            <span
+                                style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-bottom: 5px;"
+                                data-i18n="about.card.uni">Università</span>
+                            <strong style="color: #fff;" data-i18n="about.card.uni.val">UNIVPM - Ancona</strong>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <!-- Astrophotography Skills -->
+                <div style="max-width: 900px; margin: 0 auto 60px;">
+                    <h3 style="margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;"
+                        data-i18n="about.skills.title">Competenze Astrofotografiche</h3>
+
+                    <div class="grid-3" style="gap: 30px;">
+                        <div>
+                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i
+                                    style="margin-right: 10px;">🔭</i><span
+                                    data-i18n="about.skills.instr.title">Strumentazione</span></h4>
+                            <ul style="list-style: none; color: #aaa; line-height: 1.8;">
+                                <li data-i18n="about.skills.instr.li1">Telescopi e Ottiche</li>
+                                <li data-i18n="about.skills.instr.li2">Montature Equatoriali</li>
+                                <li data-i18n="about.skills.instr.li3">Camere CCD/CMOS Deep Sky</li>
+                                <li data-i18n="about.skills.instr.li4">Filtri Narrowband & LRGB</li>
+                                <li data-i18n="about.skills.instr.li5">Sistemi di Guida Automatica</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i
+                                    style="margin-right: 10px;">💻</i><span
+                                    data-i18n="about.skills.soft.title">Software</span></h4>
+                            <ul style="list-style: none; color: #aaa; line-height: 1.8;">
+                                <li>PixInsight (Advanced)</li>
+                                <li>Siril (Scripting)</li>
+                                <li>Tstar (Proprietary Dev)</li>
+                                <li>Adobe Photoshop</li>
+                                <li>Nina / Sequence Generator Pro</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i
+                                    style="margin-right: 10px;">🛠️</i><span data-i18n="about.skills.oss.title">Sviluppo
+                                    OSS</span></h4>
+                            <p style="color: #aaa; line-height: 1.6; font-size: 0.95rem;"
+                                data-i18n="about.skills.oss.text">
+                                Contributore attivo per software astronomici open source.
+                                Sviluppo di moduli C++ per l'analisi e l'elaborazione delle immagini e ottimizzazione di
+                                algoritmi di stacking e calibrazione.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats & Fusion Philoshopty -->
+                <div
+                    style="max-width: 900px; margin: 0 auto; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+
+
+                    <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa;" data-i18n="about.quote">
+                            "Unendo le competenze di ingegneria del software e analisi dei segnali, ho sviluppato TStar
+                            per colmare il divario tra la complessità dei dati astronomici e la bellezza visuale,
+                            rendendo l'astrofotografia una scienza accessibile."
+                        </p>
+                        <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
+                            <a href="https://ft2801.github.io/Portfolio" class="btn"
+                                data-i18n="about.btn.portfolio">Portfolio Web</a>
+                            <a href="https://github.com/Ft2801" class="btn" style="border-color: #fff; color: #fff;"
+                                data-i18n="about.btn.github">GitHub Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
     </div>
     <script src="../assets/js/layout.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
+
 </html>

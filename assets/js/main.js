@@ -8,11 +8,11 @@ let mouseY = 0;
 // Mouse move listener
 document.addEventListener('mousemove', (e) => {
     // Directly set style for performance and instant tracking
-    if(cursor) {
+    if (cursor) {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
     }
-    
+
     // Update global mouse coordinates for parallax
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -20,13 +20,13 @@ document.addEventListener('mousemove', (e) => {
 
 // Hover effect (delegated)
 document.addEventListener('mouseover', (e) => {
-    if(!cursor) return;
+    if (!cursor) return;
     if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('.card')) {
         cursor.classList.add('hovered');
     } else {
         const isInteractive = e.target.closest('a') || e.target.closest('button') || e.target.closest('.card');
         if (!isInteractive) {
-             cursor.classList.remove('hovered');
+            cursor.classList.remove('hovered');
         }
     }
 });
@@ -34,15 +34,15 @@ document.addEventListener('mouseover', (e) => {
 
 // --- Starfield Canvas Logic ---
 const canvas = document.getElementById('starfield');
-if(canvas) {
+if (canvas) {
     const ctx = canvas.getContext('2d');
-    
+
     let width, height;
     let stars = [];
     const starCount = 500; // Increased count
-    
+
     // Subtle star colors: White, Pale Blue, Pale Orange
-    const starColors = ['255, 255, 255', '220, 240, 255', '255, 230, 210']; 
+    const starColors = ['255, 255, 255', '220, 240, 255', '255, 230, 210'];
 
     function resize() {
         width = window.innerWidth;
@@ -61,8 +61,8 @@ if(canvas) {
             this.color = starColors[Math.floor(Math.random() * starColors.length)];
         }
         update() {
-             // Simple drift downwards
-            this.baseY += 0.1 * this.z; 
+            // Simple drift downwards
+            this.baseY += 0.1 * this.z;
             if (this.baseY > height) {
                 this.baseY = -10; // Start slightly above
                 this.baseX = Math.random() * width;
@@ -73,7 +73,7 @@ if(canvas) {
             // Calculate offset from center
             const centerX = width / 2;
             const centerY = height / 2;
-            
+
             // If mouse hasn't moved yet (0,0), assume center
             const mx = (mouseX === 0 && mouseY === 0) ? centerX : mouseX;
             const my = (mouseY === 0 && mouseY === 0) ? centerY : mouseY;
@@ -106,7 +106,7 @@ if(canvas) {
     function initStars() {
         resize();
         stars = [];
-        for(let i=0; i<starCount; i++) stars.push(new Star());
+        for (let i = 0; i < starCount; i++) stars.push(new Star());
     }
 
     function animateStars() {
@@ -132,15 +132,15 @@ if(canvas) {
 // --- Single Page Application (SPA) Logic ---
 
 function initPageAnimations() {
-     // Add float-in class to main sections
-     const sections = document.querySelectorAll('.section, .hero, .container > *');
-     sections.forEach((el, index) => {
-         // Only animate if not already animated/visible
-         if(!el.classList.contains('float-in')) {
-             el.style.animationDelay = `${index * 0.1}s`;
-             el.classList.add('float-in');
-         }
-     });
+    // Add float-in class to main sections
+    const sections = document.querySelectorAll('.section, .hero, .container > *');
+    sections.forEach((el, index) => {
+        // Only animate if not already animated/visible
+        if (!el.classList.contains('float-in')) {
+            el.style.animationDelay = `${index * 0.1}s`;
+            el.classList.add('float-in');
+        }
+    });
 }
 
 // Initial Call
@@ -151,11 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('click', async (e) => {
     // Find closest anchor tag
     const link = e.target.closest('a');
-    
+
     // Only intercept internal links, ignore hashes, download links, target blank
     if (!link) return;
     const href = link.getAttribute('href');
-    
+
     // Safety checks
     if (!href || href.startsWith('mailto') || link.hasAttribute('download') || link.target === '_blank') return;
     // Don't exclude 'http' yet, check if it's external later
@@ -169,7 +169,7 @@ document.addEventListener('click', async (e) => {
         e.preventDefault();
         const targetId = linkUrl.hash.substring(1);
         let targetElement = document.getElementById(targetId);
-        
+
         if (targetElement) {
             // If it's the intro-section, scroll to the first card grid instead of the title
             if (targetId === 'intro-section') {
@@ -178,12 +178,12 @@ document.addEventListener('click', async (e) => {
                     targetElement = gridElement;
                 }
             }
-            
+
             // Get navbar height
             const navbar = document.querySelector('.navbar');
             const navbarHeight = navbar ? navbar.offsetHeight : 60;
             const extraPadding = 160; // Stop 100px higher
-            
+
             // Calculate target position
             const elementRect = targetElement.getBoundingClientRect();
             const targetPos = elementRect.top + window.pageYOffset - navbarHeight - extraPadding;
@@ -232,7 +232,7 @@ let lastPathname = window.location.pathname;
 
 window.addEventListener('popstate', () => {
     const currentPathname = window.location.pathname;
-    
+
     // If pathname hasn't changed (it's just a hash change), ignore SPA reload
     if (currentPathname === lastPathname) {
         return;
@@ -244,8 +244,8 @@ window.addEventListener('popstate', () => {
 
 async function navigateTo(url, pushState = true) {
     const mainContent = document.querySelector('#main-content');
-    
-    if(!mainContent) {
+
+    if (!mainContent) {
         // Fallback if structure is missing
         window.location.href = url;
         return;
@@ -255,7 +255,7 @@ async function navigateTo(url, pushState = true) {
     mainContent.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     mainContent.style.opacity = '0';
     mainContent.style.transform = 'translateY(20px)';
-    
+
     // Wait for transition
     await new Promise(r => setTimeout(r, 300));
 
@@ -270,7 +270,7 @@ async function navigateTo(url, pushState = true) {
         const doc = parser.parseFromString(text, 'text/html');
         // Handle both full page and partial content if needed (but we aimed for full page files)
         const newContent = doc.querySelector('#main-content');
-        
+
         if (!newContent) throw new Error('No #main-content in target page');
 
         if (pushState) {
@@ -283,30 +283,36 @@ async function navigateTo(url, pushState = true) {
 
         // Replace content
         mainContent.innerHTML = newContent.innerHTML;
-        
+
         // Scroll to top
         window.scrollTo(0, 0);
 
         // 4. REFRESH LAYOUT: Correct relative paths for new depth
-        if(window.renderHeader) window.renderHeader();
-        if(window.renderFooter) window.renderFooter();
+        if (window.renderHeader) window.renderHeader();
+        if (window.renderFooter) window.renderFooter();
 
         // 4b. Update Active Links
-        if(window.updateActiveLink) window.updateActiveLink();
+        if (window.updateActiveLink) window.updateActiveLink();
+
+        // 4c. Re-apply Translations (fix for SPA navigation)
+        if (window.setLanguage) {
+            const savedLang = localStorage.getItem('lang') || 'it';
+            window.setLanguage(savedLang);
+        }
 
         // 5. Fade In
         // Small delay to ensure DOM update is registered
         requestAnimationFrame(() => {
-             mainContent.style.transition = 'none'; 
-             mainContent.style.opacity = '0';
-             mainContent.style.transform = 'translateY(20px)';
-             
-             requestAnimationFrame(() => {
-                 mainContent.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                 mainContent.style.opacity = '1';
-                 mainContent.style.transform = 'translateY(0)';
-                 initPageAnimations();
-             });
+            mainContent.style.transition = 'none';
+            mainContent.style.opacity = '0';
+            mainContent.style.transform = 'translateY(20px)';
+
+            requestAnimationFrame(() => {
+                mainContent.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                mainContent.style.opacity = '1';
+                mainContent.style.transform = 'translateY(0)';
+                initPageAnimations();
+            });
         });
 
     } catch (err) {

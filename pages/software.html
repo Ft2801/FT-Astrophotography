@@ -1,52 +1,81 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Tstar - Fabio Tempera</title>
-    <meta name="description" content="Tstar: Software proprietario per l'analisi e l'elaborazione astronomica sviluppato da Fabio Tempera.">
+    <meta name="description"
+        content="Tstar: Software proprietario per l'analisi e l'elaborazione astronomica sviluppato da Fabio Tempera.">
     <meta name="keywords" content="Tstar software, Fabio Tempera software, Astronomia software, Tstar download">
     <meta name="author" content="Fabio Tempera">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <script src="../assets/js/translations.js"></script>
 </head>
+
 <body>
     <div id="cursor"></div>
     <canvas id="starfield"></canvas>
     <div id="main-content">
         <!-- Custom minimal header for software page to avoid full screen hero -->
         <div class="container" style="padding-top: 120px; padding-bottom: 20px; text-align: center;">
-            <h1 style="margin-bottom: 20px;">TStar</h1>
-            <a href="https://github.com/Ft2801/TStar/releases" class="btn" style="margin: 0;">Vedi su GitHub</a>
+            <h1 style="margin-bottom: 20px;" data-i18n="software.page.title">TStar</h1>
+            <a href="https://github.com/Ft2801/TStar/releases" class="btn" style="margin: 0;"
+                data-i18n="software.page.btn">Vedi su GitHub</a>
         </div>
 
         <section class="section" style="padding-top: 30px;">
             <div class="container">
                 <div class="grid-3" style="grid-template-columns: 1fr 2fr; align-items: start; gap: 50px;">
-                <div>
-                   <img src="../assets/images/TStar.webp" alt="Tstar Interface" class="tstar-logo" style="width: 80%; margin: 0 auto; display: block; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 20px rgba(0,0,0,0.5);">
-                </div>
-                <div>
-                   <p style="margin-bottom: 25px; line-height: 1.8;">
-                    TStar si distingue come una potente piattaforma di elaborazione immagini basata su architettura C++17 e Qt6, progettata esplicitamente per rispondere alle esigenze dell'astrofotografia moderna e produrre risultati di grado scientifico. Il software offre un ambiente di lavoro MDI (Multi-Document Interface) estremamente flessibile che garantisce la piena compatibilità con file FITS/XISF/TIFF a 8, 16 e 32 bit, sia interi che in virgola mobile, permettendo un controllo totale sui dati grezzi lineari.
-                   </p>
-                   
-                   <p style="margin-bottom: 25px; line-height: 1.8;">
-                   Il cuore del flusso di lavoro in TStar risiede nella sua capacità di trasformare il segnale lineare in immagini visibili con estrema precisione: grazie a strumenti all'avanguardia come il Generalized Hyperbolic Stretch (GHS) e l'ArcSinh Stretch, è possibile gestire in modo indipendente ombre, mezzitoni e luci, preservando la saturazione e i dettagli più fini. La fedeltà cromatica è assicurata dalla Calibrazione Colore Fotometrica (PCC), che risolve astrometricamente l'immagine e calibra i colori basandosi sui cataloghi stellari Gaia e APASS, affiancata da efficaci strumenti per la rimozione dei gradienti luminosi e delle dominanti di fondo.
-                   </p>
+                    <div>
+                        <img src="../assets/images/TStar.webp" alt="Tstar Interface" class="tstar-logo"
+                            style="width: 80%; margin: 0 auto; display: block; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+                    </div>
+                    <div>
+                        <p style="margin-bottom: 25px; line-height: 1.8;" data-i18n="software.page.p1">
+                            TStar si distingue come una potente piattaforma di elaborazione immagini basata su
+                            architettura C++17 e Qt6, progettata esplicitamente per rispondere alle esigenze
+                            dell'astrofotografia moderna e produrre risultati di grado scientifico. Il software offre un
+                            ambiente di lavoro MDI (Multi-Document Interface) estremamente flessibile che garantisce la
+                            piena compatibilità con file FITS/XISF/TIFF a 8, 16 e 32 bit, sia interi che in virgola
+                            mobile, permettendo un controllo totale sui dati grezzi lineari.
+                        </p>
 
-                   <p style="line-height: 1.8;">
-                   Un aspetto distintivo di TStar è l'integrazione nativa di tecnologie basate sull'Intelligenza Artificiale per il restauro dell'immagine. Il modulo Cosmic Clarity sfrutta il Deep Learning per la riduzione del rumore e lo sharpening, mentre la compatibilità con StarNet++ e GraXpert facilita operazioni complesse come la rimozione delle stelle e l'estrazione avanzata dei gradienti. A completare il quadro tecnico vi sono funzionalità avanzate per la composizione in banda stretta (con palette artistiche personalizzabili), un potente motore PixelMath per operazioni aritmetiche tra immagini e un sistema di mascheratura sofisticato che permette di isolare luminanza, crominanza o specifiche caratteristiche stellari per interventi localizzati di alta precisione.
-                   </p>
+                        <p style="margin-bottom: 25px; line-height: 1.8;" data-i18n="software.page.p2">
+                            Il cuore del flusso di lavoro in TStar risiede nella sua capacità di trasformare il segnale
+                            lineare in immagini visibili con estrema precisione: grazie a strumenti all'avanguardia come
+                            il Generalized Hyperbolic Stretch (GHS) e l'ArcSinh Stretch, è possibile gestire in modo
+                            indipendente ombre, mezzitoni e luci, preservando la saturazione e i dettagli più fini. La
+                            fedeltà cromatica è assicurata dalla Calibrazione Colore Fotometrica (PCC), che risolve
+                            astrometricamente l'immagine e calibra i colori basandosi sui cataloghi stellari Gaia e
+                            APASS, affiancata da efficaci strumenti per la rimozione dei gradienti luminosi e delle
+                            dominanti di fondo.
+                        </p>
+
+                        <p style="line-height: 1.8;" data-i18n="software.page.p3">
+                            Un aspetto distintivo di TStar è l'integrazione nativa di tecnologie basate
+                            sull'Intelligenza Artificiale per il restauro dell'immagine. Il modulo Cosmic Clarity
+                            sfrutta il Deep Learning per la riduzione del rumore e lo sharpening, mentre la
+                            compatibilità con StarNet++ e GraXpert facilita operazioni complesse come la rimozione delle
+                            stelle e l'estrazione avanzata dei gradienti. A completare il quadro tecnico vi sono
+                            funzionalità avanzate per la composizione in banda stretta (con palette artistiche
+                            personalizzabili), un potente motore PixelMath per operazioni aritmetiche tra immagini e un
+                            sistema di mascheratura sofisticato che permette di isolare luminanza, crominanza o
+                            specifiche caratteristiche stellari per interventi localizzati di alta precisione.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     </div>
     <script src="../assets/js/layout.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
+
 </html>
