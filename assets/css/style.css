@@ -81,6 +81,13 @@ body.fade-out {
     /* No expansion */
 }
 
+/* Hide cursor on mobile */
+@media (max-width: 768px) {
+    #cursor {
+        display: none;
+    }
+}
+
 /* Background Canvas */
 #starfield {
     position: fixed;

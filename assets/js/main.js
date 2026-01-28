@@ -84,7 +84,7 @@ if(canvas) {
 
             // Scroll Parallax - Create depth feeling during scroll
             const scrollY = window.scrollY;
-            const scrollOffset = scrollY * 0.1 * this.z;
+            const scrollOffset = (scrollY % height) * 0.1 * this.z;
 
             let x = this.baseX - offsetX;
             let y = this.baseY - offsetY - scrollOffset;
