@@ -73,9 +73,6 @@ body.fade-out {
     background-image:
         radial-gradient(circle at 15% 50%, rgba(74, 144, 226, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 85% 30%, rgba(155, 89, 182, 0.08) 0%, transparent 50%);
-    filter: blur(2px);
-    transform: scale(1.1);
-    /* Prevent blurred edges */
 }
 
 
@@ -266,6 +263,11 @@ a:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
     border-color: var(--accent-cyan);
+}
+
+/* Performance Optimization */
+.card {
+    will-change: transform;
 }
 
 .card img {

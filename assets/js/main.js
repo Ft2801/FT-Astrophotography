@@ -24,7 +24,7 @@ if (particleCanvas) {
             this.y = Math.random() * height;
             this.vx = (Math.random() - 0.5) * 0.5; // Slow horizontal drift
             this.vy = (Math.random() - 0.5) * 0.5; // Slow vertical drift
-            this.size = Math.random() * 3 + 1; // 1 to 4px
+            this.size = Math.random() * 6 + 4; // Larger (4-10px) for more visible blur
             this.color = colors[Math.floor(Math.random() * colors.length)];
             this.alpha = Math.random() * 0.5 + 0.2;
         }
@@ -41,8 +41,16 @@ if (particleCanvas) {
         }
 
         draw() {
+            // Soft Particle using Radial Gradient
             ctx.globalAlpha = this.alpha;
-            ctx.fillStyle = this.color;
+
+            // Create gradient from center (white/color) to edges (transparent)
+            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+            gradient.addColorStop(0, this.color);
+            gradient.addColorStop(0.1, this.color); // Tiny core
+            gradient.addColorStop(1, 'rgba(0,0,0,0)'); // Fade out
+
+            ctx.fillStyle = gradient;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
@@ -60,6 +68,7 @@ if (particleCanvas) {
 
     function animateParticles() {
         ctx.clearRect(0, 0, width, height);
+        // Optional: clear with specific color if needed, but transparent is fine for overlay
         particles.forEach(p => {
             p.update();
             p.draw();
