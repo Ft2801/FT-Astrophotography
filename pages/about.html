@@ -60,8 +60,11 @@
 </head>
 
 <body>
-    <div id="cursor"></div>
-    <canvas id="starfield"></canvas>
+
+    <canvas id="particles"></canvas>
+
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <div id="main-content">
         <div class="section" style="padding-top: 150px;">
             <div class="container">
@@ -96,8 +99,7 @@
 
                     <div class="grid-3" style="gap: 30px;">
                         <div>
-                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i
-                                    style="margin-right: 10px;">🔭</i><span
+                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><span
                                     data-i18n="about.skills.instr.title">Strumentazione</span></h4>
                             <ul style="list-style: none; color: #aaa; line-height: 1.8;">
                                 <li data-i18n="about.skills.instr.li1">Telescopi e Ottiche</li>
@@ -109,8 +111,7 @@
                         </div>
 
                         <div>
-                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i
-                                    style="margin-right: 10px;">💻</i><span
+                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><span
                                     data-i18n="about.skills.soft.title">Software</span></h4>
                             <ul style="list-style: none; color: #aaa; line-height: 1.8;">
                                 <li>PixInsight (Advanced)</li>
@@ -122,8 +123,8 @@
                         </div>
 
                         <div>
-                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><i
-                                    style="margin-right: 10px;">🛠️</i><span data-i18n="about.skills.oss.title">Sviluppo
+                            <h4 style="margin-bottom: 15px; color: var(--accent-cyan);"><span
+                                    data-i18n="about.skills.oss.title">Sviluppo
                                     OSS</span></h4>
                             <p style="color: #aaa; line-height: 1.6; font-size: 0.95rem;"
                                 data-i18n="about.skills.oss.text">

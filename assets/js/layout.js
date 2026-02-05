@@ -1,5 +1,5 @@
 const siteConfig = {
-    name: "Fabio Tempera",
+    name: "FT-Astrophotography",
     root: "/",
 };
 
@@ -52,7 +52,7 @@ function renderHeader() {
     const headerHTML = `
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="${prefix}index.html" class="logo ajax-link">Fabio Tempera</a>
+            <a href="${prefix}index.html" class="logo ajax-link">FT-Astrophotography</a>
             
             <button class="hamburger" aria-label="Menu">
                 <span class="hamburger-inner"></span>
@@ -121,7 +121,7 @@ function renderFooter() {
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>Fabio Tempera</h3>
+                    <h3>FT-Astrophotography</h3>
                     <p data-i18n="footer.brand.desc">${t["footer.brand.desc"]}</p>
                 </div>
                 
@@ -141,7 +141,6 @@ function renderFooter() {
                     <ul>
                         <li><a href="https://github.com/Ft2801" target="_blank">GitHub</a></li>
                         <li><a href="https://ft2801.github.io/Portfolio" target="_blank">Portfolio</a></li>
-                        <li><a href="mailto:fabiot2801@gmail.com">Contatti</a></li>
                     </ul>
                 </div>
             </div>

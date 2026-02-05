@@ -1,35 +1,81 @@
-// --- Custom Cursor Logic ---
-const cursor = document.getElementById('cursor');
 
-// Starfield Parallax Variables
-let mouseX = 0;
-let mouseY = 0;
 
-// Mouse move listener
-document.addEventListener('mousemove', (e) => {
-    // Directly set style for performance and instant tracking
-    if (cursor) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+// --- Particle System Logic ---
+const particleCanvas = document.getElementById('particles');
+if (particleCanvas) {
+    const ctx = particleCanvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    const particleCount = 60; // Lightweight count
+
+    // Palette: Cyan, Purple, Blue
+    const colors = ['#4a90e2', '#9b59b6', '#4a4eff'];
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        particleCanvas.width = width;
+        particleCanvas.height = height;
     }
 
-    // Update global mouse coordinates for parallax
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.5; // Slow horizontal drift
+            this.vy = (Math.random() - 0.5) * 0.5; // Slow vertical drift
+            this.size = Math.random() * 3 + 1; // 1 to 4px
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.alpha = Math.random() * 0.5 + 0.2;
+        }
 
-// Hover effect (delegated)
-document.addEventListener('mouseover', (e) => {
-    if (!cursor) return;
-    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('a') || e.target.closest('.card')) {
-        cursor.classList.add('hovered');
-    } else {
-        const isInteractive = e.target.closest('a') || e.target.closest('button') || e.target.closest('.card');
-        if (!isInteractive) {
-            cursor.classList.remove('hovered');
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Wrap around screen
+            if (this.x < 0) this.x = width;
+            if (this.x > width) this.x = 0;
+            if (this.y < 0) this.y = height;
+            if (this.y > height) this.y = 0;
+        }
+
+        draw() {
+            ctx.globalAlpha = this.alpha;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1.0;
         }
     }
-});
+
+    function initParticles() {
+        resize();
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+    });
+
+    initParticles();
+    animateParticles();
+}
+
 
 // --- Navbar Scrolled Logic ---
 window.addEventListener('scroll', () => {
@@ -44,100 +90,18 @@ window.addEventListener('scroll', () => {
 });
 
 
-// --- Starfield Canvas Logic ---
-const canvas = document.getElementById('starfield');
-if (canvas) {
-    const ctx = canvas.getContext('2d');
+// --- Lenis Smooth Scrolling ---
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smooth: true
+});
 
-    let width, height;
-    let stars = [];
-    const starCount = 500; // Increased count
-
-    // Subtle star colors: White, Pale Blue, Pale Orange
-    const starColors = ['255, 255, 255', '220, 240, 255', '255, 230, 210'];
-
-    function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-    }
-
-    class Star {
-        constructor() {
-            this.baseX = Math.random() * width;
-            this.baseY = Math.random() * height;
-            this.z = Math.random() * 1.5 + 0.5; // depth between 0.5 and 2.0
-            this.size = Math.random() * 1.5;
-            // Pick a random color
-            this.color = starColors[Math.floor(Math.random() * starColors.length)];
-        }
-        update() {
-            // Simple drift downwards
-            this.baseY += 0.1 * this.z;
-            if (this.baseY > height) {
-                this.baseY = -10; // Start slightly above
-                this.baseX = Math.random() * width;
-            }
-        }
-        draw() {
-            // Parallax Logic: Move stars opposite to mouse direction
-            // Calculate offset from center
-            const centerX = width / 2;
-            const centerY = height / 2;
-
-            // If mouse hasn't moved yet (0,0), assume center
-            const mx = (mouseX === 0 && mouseY === 0) ? centerX : mouseX;
-            const my = (mouseY === 0 && mouseY === 0) ? centerY : mouseY;
-
-            // Mouse Parallax - Significantly reduced sensitivity (0.05 -> 0.01)
-            const offsetX = (mx - centerX) * 0.01 * this.z;
-            const offsetY = (my - centerY) * 0.01 * this.z;
-
-            // Scroll Parallax - Create depth feeling during scroll
-            const scrollY = window.scrollY;
-            const scrollOffset = (scrollY % height) * 0.1 * this.z;
-
-            let x = this.baseX - offsetX;
-            let y = this.baseY - offsetY - scrollOffset;
-
-            // Infinite vertical wrap for scrolling
-            // Ensure y stays within visible canvas height for continuous background
-            if (height > 0) { // Safety check
-                y = ((y % height) + height) % height;
-            }
-
-            // Use the star's specific color
-            ctx.fillStyle = `rgba(${this.color}, ${this.z / 2.5})`; // dimmer if further away
-            ctx.beginPath();
-            ctx.arc(x, y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    function initStars() {
-        resize();
-        stars = [];
-        for (let i = 0; i < starCount; i++) stars.push(new Star());
-    }
-
-    function animateStars() {
-        ctx.clearRect(0, 0, width, height);
-        stars.forEach(s => {
-            s.update();
-            s.draw();
-        });
-        requestAnimationFrame(animateStars);
-    }
-
-    window.addEventListener('resize', () => {
-        resize();
-        initStars();
-    });
-
-    initStars();
-    animateStars();
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
 }
+requestAnimationFrame(raf);
 
 
 
@@ -191,42 +155,15 @@ document.addEventListener('click', async (e) => {
                 }
             }
 
-            // Get navbar height
+            // Get navbar height for offset
             const navbar = document.querySelector('.navbar');
             const navbarHeight = navbar ? navbar.offsetHeight : 60;
-            const extraPadding = 180; // Stop even higher as requested
 
-            // Calculate target position
-            const elementRect = targetElement.getBoundingClientRect();
-            const targetPos = elementRect.top + window.pageYOffset - navbarHeight - extraPadding;
-            const startPos = window.pageYOffset;
-            const distance = targetPos - startPos;
-            const duration = 1000; // Slower 1000ms smooth scroll (doubled)
-            let start = null;
-
-            function step(timestamp) {
-                if (!start) start = timestamp;
-                const progress = timestamp - start;
-                const percentage = Math.min(progress / duration, 1);
-
-                // Ease-in-out cubic
-                const ease = percentage < 0.5
-                    ? 4 * percentage * percentage * percentage
-                    : 1 - Math.pow(-2 * percentage + 2, 3) / 2;
-
-                window.scrollTo(0, startPos + distance * ease);
-
-                if (progress < duration) {
-                    window.requestAnimationFrame(step);
-                } else {
-                    document.documentElement.style.scrollBehavior = ''; // Restore CSS smooth scroll
-                }
-            }
-
-            // Disable CSS smooth scroll to prevent conflict with JS manual scroll
-            document.documentElement.style.scrollBehavior = 'auto';
-
-            window.requestAnimationFrame(step);
+            // Lenis Scroll
+            lenis.scrollTo(targetElement, {
+                offset: -navbarHeight - 20, // adjust offset
+                duration: 1.5
+            });
         }
         return;
     }
@@ -301,8 +238,13 @@ async function navigateTo(url, pushState = true) {
         // Replace content
         mainContent.innerHTML = newContent.innerHTML;
 
-        // Scroll to top
-        window.scrollTo(0, 0);
+        // Scroll to top using Lenis
+        if (typeof lenis !== 'undefined') {
+            lenis.scrollTo(0, { immediate: true });
+        } else {
+            window.scrollTo(0, 0);
+        }
+
 
         // 4. REFRESH LAYOUT: Correct relative paths for new depth
         if (window.renderHeader) window.renderHeader();

@@ -28,7 +28,7 @@ body {
     color: var(--text-color);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none;
+    cursor: auto;
     /* Hide default cursor */
     line-height: 1.6;
 }
@@ -57,52 +57,27 @@ body.fade-out {
     }
 }
 
-/* Custom Cursor */
-#cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    /* White background */
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.8), 0 0 15px 5px rgba(255, 255, 255, 0.4);
-    /* Star glow */
-    mix-blend-mode: difference;
-    opacity: 1;
-    will-change: transform;
-}
 
-#cursor.hovered {
-    width: 10px;
-    /* Force stay 10px */
-    height: 10px;
-    /* Force stay 10px */
-    background-color: #fff;
-    opacity: 1;
-    /* No expansion */
-}
-
-/* Hide cursor on mobile */
-@media (max-width: 768px) {
-    #cursor {
-        display: none;
-    }
-}
 
 /* Background Canvas */
-#starfield {
+/* Ambient Light Background */
+/* Particle Background */
+#particles {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
+    background: #050508;
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(74, 144, 226, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(155, 89, 182, 0.08) 0%, transparent 50%);
+    filter: blur(2px);
+    transform: scale(1.1);
+    /* Prevent blurred edges */
 }
+
 
 /* Typography */
 h1,
@@ -131,7 +106,7 @@ a {
     text-decoration: none;
     color: inherit;
     transition: color var(--transition-speed);
-    cursor: none;
+    cursor: pointer;
 }
 
 a:hover {
@@ -154,12 +129,13 @@ a:hover {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 15px 0;
-    background: var(--nav-bg);
-    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    background: rgba(11, 13, 23, 0.95);
+    /* Opaque dark for legibility */
     z-index: 1000;
-    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtler border */
 }
 
 .navbar.scrolled {
@@ -274,13 +250,16 @@ a:hover {
     gap: 30px;
 }
 
-/* Card Style */
+/* Dark Card Style (No Glass) */
 .card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    /* Slightly lighter than bg */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    /* Slightly more rounded */
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
@@ -314,11 +293,11 @@ a:hover {
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 0.8);
+    background: #000;
+    /* Solid back */
     padding: 60px 0 30px;
     margin-top: 80px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
 }
 
 .footer-grid {
@@ -506,6 +485,11 @@ footer {
         padding: 0 35px;
     }
 
+    .logo {
+        font-size: 1.35rem;
+        /* Reduced by 10% from 1.5rem */
+    }
+
     .hamburger {
         display: block;
     }
@@ -620,7 +604,8 @@ footer {
     border: 1px solid var(--accent-cyan);
     background: transparent;
     color: var(--accent-cyan);
-    border-radius: 30px;
+    border-radius: 5px;
+    /* Square loop */
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;

@@ -63,8 +63,11 @@
 </head>
 
 <body>
-    <div id="cursor"></div>
-    <canvas id="starfield"></canvas>
+
+    <canvas id="particles"></canvas>
+
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <div id="main-content">
         <!-- Custom minimal header for software page to avoid full screen hero -->
         <div class="container" style="padding-top: 120px; padding-bottom: 20px; text-align: center;">
@@ -78,7 +81,7 @@
                 <div class="grid-3" style="grid-template-columns: 1fr 2fr; align-items: start; gap: 50px;">
                     <div>
                         <img src="../assets/images/TStar.webp" alt="Tstar Interface" class="tstar-logo"
-                            style="width: 80%; margin: 0 auto; display: block; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+                            style="width: 80%; margin: 0 auto; display: block; border-radius: 10px;">
                     </div>
                     <div>
                         <p style="margin-bottom: 25px; line-height: 1.8;" data-i18n="software.page.p1">

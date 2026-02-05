@@ -139,9 +139,9 @@ const translations = {
 
         // Detail: Orion Horse
         "orion_horse.title": "Orione e Testa di Cavallo",
-        "orion_horse.subtitle": "Barnard 33 & NGC 2024",
+        "orion_horse.subtitle": "Barnard 33 & M42",
         "orion_horse.p1": "Questa straordinaria composizione rivela due delle nebulose più celebri del Complesso Molecolare di Orione. La Testa di Cavallo (Barnard 33) si staglia come una silhouette scura di polvere densa e gas freddo, sovrapposta al bagliore rosso ionizzato dell'idrogeno (H-alpha) emesso dalla nebulosa IC 434 alle sue spalle. È una regione di attiva formazione stellare dove i venti stallari delle stelle massicce vicine stanno lentamente erodendo la nube oscura.",
-        "orion_horse.p2": "Accanto ad essa risplende la Nebulosa Fiamma (NGC 2024), la cui struttura intricata è tagliata da bande di polvere oscura che nascondono un ammasso di stelle giovani e calde al suo interno. L'energia ultravioletta di queste stelle, tra cui la brillante Alnitak (Zeta Orionis) - la stella più orientale della Cintura di Orione visibile nell'immagine - ionizza i gas circostanti facendoli brillare.",
+        "orion_horse.p2": "Accanto ad essa risplende la Nebulosa Fiamma, la cui struttura intricata è tagliata da bande di polvere oscura che nascondono un ammasso di stelle giovani e calde al suo interno. L'energia ultravioletta di queste stelle, tra cui la brillante Alnitak (Zeta Orionis) - la stella più orientale della Cintura di Orione visibile nell'immagine - ionizza i gas circostanti facendoli brillare.",
         "orion_horse.p3": "L'immagine cattura la drammatica interazione tra radiazione ad alta energia e materia interstellare in una delle regioni più studiate e affascinanti del cielo invernale.",
 
         // Detail: Pleiades
@@ -306,9 +306,9 @@ const translations = {
 
         // Detail: Orion Horse
         "orion_horse.title": "Orion and Horsehead",
-        "orion_horse.subtitle": "Barnard 33 & NGC 2024",
+        "orion_horse.subtitle": "Barnard 33 & M42",
         "orion_horse.p1": "This extraordinary composition reveals two of the most famous nebulae in the Orion Molecular Complex. The Horsehead (Barnard 33) stands out as a dark silhouette of dense dust and cold gas, superimposed on the ionized red glow of hydrogen (H-alpha) emitted by the nebula IC 434 behind it. It is a region of active star formation where stellar winds from nearby massive stars are slowly eroding the dark cloud.",
-        "orion_horse.p2": "Beside it shines the Flame Nebula (NGC 2024), whose intricate structure is cut by bands of dark dust hiding a cluster of young, hot stars within. The ultraviolet energy of these stars, including the bright Alnitak (Zeta Orionis) - the easternmost star of Orion's Belt visible in the image - ionizes the surrounding gases, causing them to glow.",
+        "orion_horse.p2": "Beside it shines the Flame Nebula, whose intricate structure is cut by bands of dark dust hiding a cluster of young, hot stars within. The ultraviolet energy of these stars, including the bright Alnitak (Zeta Orionis) - the easternmost star of Orion's Belt visible in the image - ionizes the surrounding gases, causing them to glow.",
         "orion_horse.p3": "The image captures the dramatic interaction between high-energy radiation and interstellar matter in one of the most studied and fascinating regions of the winter sky.",
 
         // Detail: Pleiades
