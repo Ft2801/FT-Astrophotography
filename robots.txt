@@ -3,11 +3,9 @@
 
 User-agent: *
 Allow: /
-Disallow: /assets/js/
-Disallow: /assets/css/
+User-agent: *
+Allow: /
 
-# Crawl-delay for politeness
-Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://ft2801.github.io/FT-Astrophotography/sitemap.xml
