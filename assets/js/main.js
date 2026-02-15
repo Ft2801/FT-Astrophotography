@@ -1,91 +1,4 @@
 
-
-// --- Particle System Logic ---
-const particleCanvas = document.getElementById('particles');
-if (particleCanvas) {
-    const ctx = particleCanvas.getContext('2d');
-    let width, height;
-    let particles = [];
-    const particleCount = 60; // Lightweight count
-
-    // Palette: Cyan, Purple, Blue
-    const colors = ['#4a90e2', '#9b59b6', '#4a4eff'];
-
-    function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        particleCanvas.width = width;
-        particleCanvas.height = height;
-    }
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.5; // Slow horizontal drift
-            this.vy = (Math.random() - 0.5) * 0.5; // Slow vertical drift
-            this.size = Math.random() * 6 + 4; // Larger (4-10px) for more visible blur
-            this.color = colors[Math.floor(Math.random() * colors.length)];
-            this.alpha = Math.random() * 0.5 + 0.2;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            // Wrap around screen
-            if (this.x < 0) this.x = width;
-            if (this.x > width) this.x = 0;
-            if (this.y < 0) this.y = height;
-            if (this.y > height) this.y = 0;
-        }
-
-        draw() {
-            // Soft Particle using Radial Gradient
-            ctx.globalAlpha = this.alpha;
-
-            // Create gradient from center (white/color) to edges (transparent)
-            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-            gradient.addColorStop(0, this.color);
-            gradient.addColorStop(0.1, this.color); // Tiny core
-            gradient.addColorStop(1, 'rgba(0,0,0,0)'); // Fade out
-
-            ctx.fillStyle = gradient;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.globalAlpha = 1.0;
-        }
-    }
-
-    function initParticles() {
-        resize();
-        particles = [];
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function animateParticles() {
-        ctx.clearRect(0, 0, width, height);
-        // Optional: clear with specific color if needed, but transparent is fine for overlay
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-        requestAnimationFrame(animateParticles);
-    }
-
-    window.addEventListener('resize', () => {
-        resize();
-        initParticles();
-    });
-
-    initParticles();
-    animateParticles();
-}
-
-
 // --- Navbar Scrolled Logic ---
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -112,12 +25,10 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-
-
 // --- Single Page Application (SPA) Logic ---
 
 function initPageAnimations() {
-    // Add float-in class to main sections
+    // Add fade-in class to main sections
     const sections = document.querySelectorAll('.section, .hero, .container > *');
     sections.forEach((el, index) => {
         // Only animate if not already animated/visible
@@ -208,19 +119,12 @@ window.addEventListener('popstate', () => {
 async function navigateTo(url, pushState = true) {
     const mainContent = document.querySelector('#main-content');
 
-    if (!mainContent) {
-        // Fallback if structure is missing
-        window.location.href = url;
-        return;
-    }
-
-    // 1. Fade Out
-    mainContent.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-    mainContent.style.opacity = '0';
-    mainContent.style.transform = 'translateY(20px)';
+    // 1. GLOBAL Fade Out (Body dissolve)
+    document.body.style.transition = 'opacity 0.4s ease';
+    document.body.style.opacity = '0';
 
     // Wait for transition
-    await new Promise(r => setTimeout(r, 300));
+    await new Promise(r => setTimeout(r, 400));
 
     try {
         // 2. Fetch
@@ -231,7 +135,6 @@ async function navigateTo(url, pushState = true) {
         // 3. Parse and Swap
         const parser = new DOMParser();
         const doc = parser.parseFromString(text, 'text/html');
-        // Handle both full page and partial content if needed (but we aimed for full page files)
         const newContent = doc.querySelector('#main-content');
 
         if (!newContent) throw new Error('No #main-content in target page');
@@ -254,31 +157,19 @@ async function navigateTo(url, pushState = true) {
             window.scrollTo(0, 0);
         }
 
-
-        // 4. REFRESH LAYOUT: Correct relative paths for new depth
+        // 4. REFRESH LAYOUT
         if (window.renderHeader) window.renderHeader();
         if (window.renderFooter) window.renderFooter();
-
-        // 4b. Update Active Links
         if (window.updateActiveLink) window.updateActiveLink();
 
-        // 4c. Re-apply Translations (fix for SPA navigation)
-        if (window.setLanguage) {
-            const savedLang = localStorage.getItem('lang') || 'it';
-            window.setLanguage(savedLang);
-        }
-
-        // 5. Fade In
-        // Small delay to ensure DOM update is registered
+        // 5. GLOBAL Fade In (Cinematic appearance)
         requestAnimationFrame(() => {
-            mainContent.style.transition = 'none';
-            mainContent.style.opacity = '0';
-            mainContent.style.transform = 'translateY(20px)';
+            document.body.style.transition = 'none';
+            document.body.style.opacity = '0';
 
             requestAnimationFrame(() => {
-                mainContent.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                mainContent.style.opacity = '1';
-                mainContent.style.transform = 'translateY(0)';
+                document.body.style.transition = 'opacity 0.6s ease';
+                document.body.style.opacity = '1';
                 initPageAnimations();
             });
         });

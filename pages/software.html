@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TStar Software Astronomico - Fabio Tempera Astrophotography</title>
+    <title>Software | FT Astrophotography</title>
     <meta name="description"
-        content="TStar: Software astronomico per astrofotografia Pescara e Abruzzo sviluppato da Fabio Tempera (Ft2801). Strumenti avanzati per astrofili Abruzzo e Pescara.">
+        content="Discover TStar, an advanced image processing platform for astrophotography. Built with C++17 and Qt6 for scientific-grade results.">
     <meta name="keywords"
-        content="astrofili abruzzo, astrofili pescara, astrofotografia pescara, astrofotografia abruzzo, TStar software, Fabio Tempera, software astronomico, astrophotography software">
+        content="TStar software, astronomical processing, image processing platform, C++17 Qt6, astrophotography tools, medical grade imaging">
     <meta name="author" content="Fabio Tempera">
     <meta name="creator" content="Fabio Tempera - Ft2801">
 
@@ -18,9 +18,9 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ft2801.github.io/FT-Astrophotography/pages/software.html">
-    <meta property="og:title" content="TStar Software Astronomico - Fabio Tempera Astrophotography">
+    <meta property="og:title" content="Software | FT Astrophotography">
     <meta property="og:description"
-        content="Astrofili Abruzzo e Pescara: TStar, software astronomico professionale per astrofotografia Pescara e Abruzzo.">
+        content="Explore TStar: high-end astronomical image processing and raw data management.">
     <meta property="og:image" content="https://ft2801.github.io/FT-Astrophotography/assets/images/TStar.webp">
 
     <!-- Twitter Card -->
@@ -59,64 +59,58 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/png" sizes="96x96" href="https://ft2801.github.io/FT-Astrophotography/favicon.png">
-    <script src="../assets/js/translations.js"></script>
+    <!-- Translations Removed -->
 </head>
 
 <body>
 
-    <canvas id="particles"></canvas>
+    <!-- Particles Removed -->
 
     <!-- Lenis for Smooth Scrolling -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <div id="main-content">
         <!-- Custom minimal header for software page to avoid full screen hero -->
         <div class="container" style="padding-top: 120px; padding-bottom: 20px; text-align: center;">
-            <h1 style="margin-bottom: 20px;" data-i18n="software.page.title">TStar</h1>
-            <a href="https://github.com/Ft2801/TStar/releases" class="btn" style="margin: 0;"
-                data-i18n="software.page.btn">Vedi su GitHub</a>
+            <h1 style="margin-bottom: 20px;">TStar</h1>
+            <a href="https://github.com/Ft2801/TStar/releases" class="btn" style="margin: 0;">View on GitHub</a>
         </div>
 
         <section class="section" style="padding-top: 30px;">
             <div class="container">
-                <div class="grid-3" style="grid-template-columns: 1fr 2fr; align-items: start; gap: 50px;">
-                    <div>
-                        <img src="../assets/images/TStar.webp" alt="Tstar Interface" class="tstar-logo"
-                            style="width: 80%; margin: 0 auto; display: block; border-radius: 10px;">
-                    </div>
-                    <div>
-                        <p style="margin-bottom: 25px; line-height: 1.8;" data-i18n="software.page.p1">
-                            TStar si distingue come una potente piattaforma di elaborazione immagini basata su
-                            architettura C++17 e Qt6, progettata esplicitamente per rispondere alle esigenze
-                            dell'astrofotografia moderna e produrre risultati di grado scientifico. Il software offre un
-                            ambiente di lavoro MDI (Multi-Document Interface) estremamente flessibile che garantisce la
-                            piena compatibilità con file FITS/XISF/TIFF a 8, 16 e 32 bit, sia interi che in virgola
-                            mobile, permettendo un controllo totale sui dati grezzi lineari.
-                        </p>
+                <div class="software-content-wrapper" style="overflow: hidden;">
+                    <img src="../assets/images/TStar.webp" alt="Tstar Interface" class="tstar-logo-float"
+                        style="width: 14%;">
 
-                        <p style="margin-bottom: 25px; line-height: 1.8;" data-i18n="software.page.p2">
-                            Il cuore del flusso di lavoro in TStar risiede nella sua capacità di trasformare il segnale
-                            lineare in immagini visibili con estrema precisione: grazie a strumenti all'avanguardia come
-                            il Generalized Hyperbolic Stretch (GHS) e l'ArcSinh Stretch, è possibile gestire in modo
-                            indipendente ombre, mezzitoni e luci, preservando la saturazione e i dettagli più fini. La
-                            fedeltà cromatica è assicurata dalla Calibrazione Colore Fotometrica (PCC), che risolve
-                            astrometricamente l'immagine e calibra i colori basandosi sui cataloghi stellari Gaia e
-                            APASS, affiancata da efficaci strumenti per la rimozione dei gradienti luminosi e delle
-                            dominanti di fondo.
-                        </p>
+                    <p style="margin-bottom: 25px; line-height: 1.8;">
+                        TStar stands out as a powerful image processing platform based on C++17 and Qt6
+                        architecture, explicitly designed to meet the needs of modern astrophotography and produce
+                        scientific-grade results. The software offers an extremely flexible MDI (Multi-Document
+                        Interface) environment that ensures full compatibility with 8, 16, and 32-bit integer and
+                        floating-point FITS/XISF/TIFF files, allowing total control over linear raw data.
+                    </p>
 
-                        <p style="line-height: 1.8;" data-i18n="software.page.p3">
-                            Un aspetto distintivo di TStar è l'integrazione nativa di tecnologie basate
-                            sull'Intelligenza Artificiale per il restauro dell'immagine. Il modulo Cosmic Clarity
-                            sfrutta il Deep Learning per la riduzione del rumore e lo sharpening, mentre la
-                            compatibilità con StarNet++ e GraXpert facilita operazioni complesse come la rimozione delle
-                            stelle e l'estrazione avanzata dei gradienti. A completare il quadro tecnico vi sono
-                            funzionalità avanzate per la composizione in banda stretta (con palette artistiche
-                            personalizzabili), un potente motore PixelMath per operazioni aritmetiche tra immagini e un
-                            sistema di mascheratura sofisticato che permette di isolare luminanza, crominanza o
-                            specifiche caratteristiche stellari per interventi localizzati di alta precisione.
-                        </p>
-                    </div>
+                    <p style="margin-bottom: 25px; line-height: 1.8;">
+                        The heart of TStar's workflow lies in its ability to transform linear signals into visible
+                        images with extreme precision: thanks to cutting-edge tools such as Generalized Hyperbolic
+                        Stretch (GHS) and ArcSinh Stretch, it is possible to independently manage shadows, midtones,
+                        and highlights, preserving saturation and fine details. Color fidelity is ensured by
+                        Photometric Color Calibration (PCC), which astrometrically solves the image and calibrates
+                        colors based on Gaia and APASS star catalogs, supported by effective tools for removing
+                        light gradients and background casts.
+                    </p>
+
+                    <p style="line-height: 1.8;">
+                        A distinctive aspect of TStar is the native integration of AI-based technologies for image
+                        restoration. The Cosmic Clarity module uses Deep Learning for noise reduction and
+                        sharpening, while compatibility with StarNet++ and GraXpert facilitates complex operations
+                        such as star removal and advanced gradient extraction. Completing the technical picture are
+                        advanced features for narrowband composition (with customizable artistic palettes), a
+                        powerful PixelMath engine for arithmetic operations between images, and a sophisticated
+                        masking system that allows isolation of luminance, chrominance, or specific stellar features
+                        for high-precision localized interventions.
+                    </p>
                 </div>
+
             </div>
         </section>
     </div>

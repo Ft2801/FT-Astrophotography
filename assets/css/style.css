@@ -1,11 +1,10 @@
 :root {
-    --bg-color: #050508;
-    --text-color: #e0e6ed;
-    --accent-cyan: #4a90e2;
-    --accent-purple: #9b59b6;
-    --accent-glow: rgba(74, 144, 226, 0.2);
-    --card-bg: rgba(255, 255, 255, 0.03);
-    --nav-bg: rgba(11, 13, 23, 0.95);
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --sub-text-color: #9e9e9e;
+    --accent-color: #ff5b32;
+    --card-bg: #1a1a1a;
+    --nav-bg: rgba(18, 18, 18, 0.95);
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
     --transition-speed: 0.3s;
@@ -31,50 +30,55 @@ body {
     cursor: auto;
     /* Hide default cursor */
     line-height: 1.6;
+    text-align: justify;
+    hyphens: auto;
 }
+
+p {
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Float Utility for Software Page */
+.tstar-logo-float {
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    .tstar-logo-float {
+        float: none;
+        display: block;
+        margin: 0 auto 30px;
+        width: 60% !important;
+    }
+}
+
 
 /* Page Transitions */
 body {
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s ease;
+    /* Global transition */
 }
 
 body.fade-out {
     opacity: 0;
 }
 
-/* Content Float In Animation */
+/* Content Fade In Animation (Removed Float) */
 .float-in {
-    animation: floatIn 0.8s ease-out forwards;
+    animation: fadeInOnly 0.8s ease-out forwards;
     opacity: 0;
-    transform: translateY(20px);
 }
 
-@keyframes floatIn {
+@keyframes fadeInOnly {
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
-
-
-
-/* Background Canvas */
-/* Ambient Light Background */
-/* Particle Background */
-#particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #050508;
-    background-image:
-        radial-gradient(circle at 15% 50%, rgba(74, 144, 226, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(155, 89, 182, 0.08) 0%, transparent 50%);
-}
-
 
 /* Typography */
 h1,
@@ -96,7 +100,7 @@ h1 {
 
 h2 {
     font-size: 2.5rem;
-    color: var(--accent-cyan);
+    color: var(--accent-color);
 }
 
 a {
@@ -107,7 +111,7 @@ a {
 }
 
 a:hover {
-    color: var(--accent-cyan);
+    color: var(--accent-color);
 }
 
 /* Layout Utilities */
@@ -127,13 +131,14 @@ a:hover {
     top: 0;
     width: 100%;
     padding: 20px 0;
-    background: rgba(11, 13, 23, 0.95);
+    background: var(--nav-bg);
     /* Opaque dark for legibility */
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     /* Subtler border */
 }
+
 
 .navbar.scrolled {
     padding: 10px 0;
@@ -168,7 +173,7 @@ a:hover {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--accent-cyan);
+    color: var(--accent-color);
 }
 
 /* Hero Section */
@@ -181,11 +186,32 @@ a:hover {
     text-align: center;
     position: relative;
     padding-top: 60px;
+    background-color: var(--bg-color);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/nuberho.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 span {
     display: block;
-    color: var(--accent-cyan);
+    color: var(--accent-color);
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 10px;
@@ -203,32 +229,22 @@ a:hover {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    border: 2px solid var(--accent-cyan);
-    color: var(--accent-cyan);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
     margin-top: 30px;
     border-radius: 5px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background: var(--accent-cyan);
-    z-index: -1;
-    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: transparent;
 }
 
 .btn:hover {
-    color: var(--bg-color);
+    background: rgba(255, 87, 34, 0.1);
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.1);
+    color: #fff;
 }
 
 .btn:active {
@@ -236,45 +252,37 @@ a:hover {
     transition: transform 0.1s;
 }
 
-.btn:hover::before {
-    width: 100%;
-}
 
-/* Grid Layouts */
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-/* Dark Card Style (No Glass) */
+/* Dark Card Style */
 .card {
     background: rgba(255, 255, 255, 0.05);
-    /* Slightly lighter than bg */
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    /* Slightly more rounded */
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
-    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-color);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.6s ease;
+}
+
+.card:hover img {
+    filter: brightness(1.1);
 }
 
 /* Performance Optimization */
 .card {
     will-change: transform;
-}
-
-.card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
 }
 
 .card-content {
@@ -295,11 +303,43 @@ a:hover {
 
 /* Footer */
 footer {
-    background: #000;
-    /* Solid back */
+    background: var(--nav-bg);
+    /* Solid back - matched to navbar */
     padding: 60px 0 30px;
-    margin-top: 80px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Grid Layouts */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+@media (max-width: 1200px) {
+    .grid-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+        /* Two columns on mobile as requested */
+    }
 }
 
 .footer-grid {
@@ -313,10 +353,7 @@ footer {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 20px;
-    background: linear-gradient(45deg, #fff, var(--accent-cyan));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
 }
 
 .footer-brand p {
@@ -349,7 +386,7 @@ footer {
 }
 
 .footer-links ul li a:hover {
-    color: var(--accent-cyan);
+    color: var(--accent-color);
     padding-left: 5px;
 }
 
@@ -541,7 +578,8 @@ footer {
     }
 
     /* Detail Pages Grid (Text + Tech Data) */
-    .grid-3[style*="2fr 1fr"] {
+    .grid-3[style*="2fr 1fr"],
+    .grid-3[style*="1fr 1.5fr"] {
         display: flex !important;
         flex-direction: column;
         gap: 40px !important;
@@ -600,24 +638,3 @@ footer {
 }
 
 /* Button Variants */
-.btn-outline {
-    display: inline-block;
-    padding: 12px 30px;
-    border: 1px solid var(--accent-cyan);
-    background: transparent;
-    color: var(--accent-cyan);
-    border-radius: 5px;
-    /* Square loop */
-    font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 1rem;
-}
-
-.btn-outline:hover {
-    background: rgba(74, 144, 226, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.1);
-    color: #fff;
-}
