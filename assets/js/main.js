@@ -1,4 +1,18 @@
 
+// --- Preloader Logic ---
+function hidePreloader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('hidden');
+    }
+}
+
+if (document.readyState === 'complete') {
+    hidePreloader();
+} else {
+    window.addEventListener('load', hidePreloader);
+}
+
 // --- Navbar Scrolled Logic ---
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -118,6 +132,10 @@ window.addEventListener('popstate', () => {
 
 async function navigateTo(url, pushState = true) {
     const mainContent = document.querySelector('#main-content');
+    const preloader = document.getElementById('preloader');
+    
+    // Show preloader
+    if (preloader) preloader.classList.remove('hidden');
 
     // 1. GLOBAL Fade Out (Body dissolve)
     document.body.style.transition = 'opacity 0.4s ease';
@@ -171,11 +189,16 @@ async function navigateTo(url, pushState = true) {
                 document.body.style.transition = 'opacity 0.6s ease';
                 document.body.style.opacity = '1';
                 initPageAnimations();
+                // Hide preloader after content is shown
+                setTimeout(() => {
+                    if (preloader) preloader.classList.add('hidden');
+                }, 300);
             });
         });
 
     } catch (err) {
         console.warn('SPA Navigation failed, falling back to reload:', err);
+        if (preloader) preloader.classList.add('hidden');
         window.location.href = url;
     }
 }
